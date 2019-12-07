@@ -1,3 +1,8 @@
 language: java
 jdk:
-  - oraclejdk8
+  - openjdk8 #Oracle JDK 8 is not working on Travis CI
+  - openjdk9 #Oracle JDK 9 is not working on Travis CI
+  - openjdk10
+  - openjdk11 #LTS
+  - openjdk12
+  - openjdk13
