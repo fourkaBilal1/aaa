@@ -3,6 +3,7 @@ addons:
   apt:
     packages:
       - ant
+install: ant all
 jdk:
   - openjdk8 #Oracle JDK 8 is not working on Travis CI
   - openjdk9 #Oracle JDK 9 is not working on Travis CI
