@@ -51,7 +51,7 @@ class ABRTest {
      une fonction test: containsTest da da da daaaaaaaaa
      */
 
-
+    @Test
     public void containsTest(){
         tester.insert(null,10,1);
         tester.insert(null,11,0);
