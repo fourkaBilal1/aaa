@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="aaa" default="all">
+  
+  
+  <property file="build.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.swc"/>
+    <include name="*.zip"/>
+    <include name="*.egg"/>
+    <include name="*.ane"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+    <include name="*.klib"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.9" value="${jdk.home.9}/bin"/>
+  <path id="jdk.classpath.9">
+    <fileset dir="${jdk.home.9}">
+      <include name="../jdk-9.0.1!/java.activation"/>
+      <include name="../jdk-9.0.1!/java.base"/>
+      <include name="../jdk-9.0.1!/java.compiler"/>
+      <include name="../jdk-9.0.1!/java.corba"/>
+      <include name="../jdk-9.0.1!/java.datatransfer"/>
+      <include name="../jdk-9.0.1!/java.desktop"/>
+      <include name="../jdk-9.0.1!/java.instrument"/>
+      <include name="../jdk-9.0.1!/java.jnlp"/>
+      <include name="../jdk-9.0.1!/java.logging"/>
+      <include name="../jdk-9.0.1!/java.management"/>
+      <include name="../jdk-9.0.1!/java.management.rmi"/>
+      <include name="../jdk-9.0.1!/java.naming"/>
+      <include name="../jdk-9.0.1!/java.prefs"/>
+      <include name="../jdk-9.0.1!/java.rmi"/>
+      <include name="../jdk-9.0.1!/java.scripting"/>
+      <include name="../jdk-9.0.1!/java.se"/>
+      <include name="../jdk-9.0.1!/java.se.ee"/>
+      <include name="../jdk-9.0.1!/java.security.jgss"/>
+      <include name="../jdk-9.0.1!/java.security.sasl"/>
+      <include name="../jdk-9.0.1!/java.smartcardio"/>
+      <include name="../jdk-9.0.1!/java.sql"/>
+      <include name="../jdk-9.0.1!/java.sql.rowset"/>
+      <include name="../jdk-9.0.1!/java.transaction"/>
+      <include name="../jdk-9.0.1!/java.xml"/>
+      <include name="../jdk-9.0.1!/java.xml.bind"/>
+      <include name="../jdk-9.0.1!/java.xml.crypto"/>
+      <include name="../jdk-9.0.1!/java.xml.ws"/>
+      <include name="../jdk-9.0.1!/java.xml.ws.annotation"/>
+      <include name="../jdk-9.0.1!/javafx.base"/>
+      <include name="../jdk-9.0.1!/javafx.controls"/>
+      <include name="../jdk-9.0.1!/javafx.deploy"/>
+      <include name="../jdk-9.0.1!/javafx.fxml"/>
+      <include name="../jdk-9.0.1!/javafx.graphics"/>
+      <include name="../jdk-9.0.1!/javafx.media"/>
+      <include name="../jdk-9.0.1!/javafx.swing"/>
+      <include name="../jdk-9.0.1!/javafx.web"/>
+      <include name="../jdk-9.0.1!/jdk.accessibility"/>
+      <include name="../jdk-9.0.1!/jdk.attach"/>
+      <include name="../jdk-9.0.1!/jdk.charsets"/>
+      <include name="../jdk-9.0.1!/jdk.compiler"/>
+      <include name="../jdk-9.0.1!/jdk.crypto.cryptoki"/>
+      <include name="../jdk-9.0.1!/jdk.crypto.ec"/>
+      <include name="../jdk-9.0.1!/jdk.crypto.mscapi"/>
+      <include name="../jdk-9.0.1!/jdk.deploy"/>
+      <include name="../jdk-9.0.1!/jdk.deploy.controlpanel"/>
+      <include name="../jdk-9.0.1!/jdk.dynalink"/>
+      <include name="../jdk-9.0.1!/jdk.editpad"/>
+      <include name="../jdk-9.0.1!/jdk.hotspot.agent"/>
+      <include name="../jdk-9.0.1!/jdk.httpserver"/>
+      <include name="../jdk-9.0.1!/jdk.incubator.httpclient"/>
+      <include name="../jdk-9.0.1!/jdk.internal.ed"/>
+      <include name="../jdk-9.0.1!/jdk.internal.jvmstat"/>
+      <include name="../jdk-9.0.1!/jdk.internal.le"/>
+      <include name="../jdk-9.0.1!/jdk.internal.opt"/>
+      <include name="../jdk-9.0.1!/jdk.internal.vm.ci"/>
+      <include name="../jdk-9.0.1!/jdk.jartool"/>
+      <include name="../jdk-9.0.1!/jdk.javadoc"/>
+      <include name="../jdk-9.0.1!/jdk.javaws"/>
+      <include name="../jdk-9.0.1!/jdk.jcmd"/>
+      <include name="../jdk-9.0.1!/jdk.jconsole"/>
+      <include name="../jdk-9.0.1!/jdk.jdeps"/>
+      <include name="../jdk-9.0.1!/jdk.jdi"/>
+      <include name="../jdk-9.0.1!/jdk.jdwp.agent"/>
+      <include name="../jdk-9.0.1!/jdk.jfr"/>
+      <include name="../jdk-9.0.1!/jdk.jlink"/>
+      <include name="../jdk-9.0.1!/jdk.jshell"/>
+      <include name="../jdk-9.0.1!/jdk.jsobject"/>
+      <include name="../jdk-9.0.1!/jdk.jstatd"/>
+      <include name="../jdk-9.0.1!/jdk.localedata"/>
+      <include name="../jdk-9.0.1!/jdk.management"/>
+      <include name="../jdk-9.0.1!/jdk.management.agent"/>
+      <include name="../jdk-9.0.1!/jdk.management.cmm"/>
+      <include name="../jdk-9.0.1!/jdk.management.jfr"/>
+      <include name="../jdk-9.0.1!/jdk.management.resource"/>
+      <include name="../jdk-9.0.1!/jdk.naming.dns"/>
+      <include name="../jdk-9.0.1!/jdk.naming.rmi"/>
+      <include name="../jdk-9.0.1!/jdk.net"/>
+      <include name="../jdk-9.0.1!/jdk.pack"/>
+      <include name="../jdk-9.0.1!/jdk.packager"/>
+      <include name="../jdk-9.0.1!/jdk.packager.services"/>
+      <include name="../jdk-9.0.1!/jdk.plugin"/>
+      <include name="../jdk-9.0.1!/jdk.plugin.dom"/>
+      <include name="../jdk-9.0.1!/jdk.plugin.server"/>
+      <include name="../jdk-9.0.1!/jdk.policytool"/>
+      <include name="../jdk-9.0.1!/jdk.rmic"/>
+      <include name="../jdk-9.0.1!/jdk.scripting.nashorn"/>
+      <include name="../jdk-9.0.1!/jdk.scripting.nashorn.shell"/>
+      <include name="../jdk-9.0.1!/jdk.sctp"/>
+      <include name="../jdk-9.0.1!/jdk.security.auth"/>
+      <include name="../jdk-9.0.1!/jdk.security.jgss"/>
+      <include name="../jdk-9.0.1!/jdk.snmp"/>
+      <include name="../jdk-9.0.1!/jdk.unsupported"/>
+      <include name="../jdk-9.0.1!/jdk.xml.bind"/>
+      <include name="../jdk-9.0.1!/jdk.xml.dom"/>
+      <include name="../jdk-9.0.1!/jdk.xml.ws"/>
+      <include name="../jdk-9.0.1!/jdk.zipfs"/>
+      <include name="../jdk-9.0.1!/oracle.desktop"/>
+      <include name="../jdk-9.0.1!/oracle.net"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.9}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.9}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.9"/>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module aaa -->
+  
+  <dirname property="module.aaa.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.aaa" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.aaa" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.aaa" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.aaa" value="-encoding UTF-8 -source 9 -target 9 ${compiler.args}"/>
+  
+  <property name="aaa.output.dir" value="${module.aaa.basedir}/out/production/aaa"/>
+  <property name="aaa.testoutput.dir" value="${module.aaa.basedir}/out/test/aaa"/>
+  
+  <path id="aaa.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="aaa.module.production.classpath">
+    <path refid="${module.jdk.classpath.aaa}"/>
+  </path>
+  
+  <path id="aaa.runtime.production.module.classpath">
+    <pathelement location="${aaa.output.dir}"/>
+  </path>
+  
+  <path id="aaa.module.classpath">
+    <path refid="${module.jdk.classpath.aaa}"/>
+    <pathelement location="${aaa.output.dir}"/>
+    <pathelement location="${path.variable.maven_repository}/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar"/>
+    <pathelement location="${path.variable.maven_repository}/org/junit/jupiter/junit-jupiter-api/5.4.2/junit-jupiter-api-5.4.2.jar"/>
+    <pathelement location="${path.variable.maven_repository}/org/junit/jupiter/junit-jupiter-engine/5.4.2/junit-jupiter-engine-5.4.2.jar"/>
+    <pathelement location="${path.variable.maven_repository}/org/junit/jupiter/junit-jupiter-params/5.4.2/junit-jupiter-params-5.4.2.jar"/>
+    <pathelement location="${path.variable.maven_repository}/org/junit/jupiter/junit-jupiter/5.4.2/junit-jupiter-5.4.2.jar"/>
+    <pathelement location="${path.variable.maven_repository}/org/junit/platform/junit-platform-commons/1.4.2/junit-platform-commons-1.4.2.jar"/>
+    <pathelement location="${path.variable.maven_repository}/org/junit/platform/junit-platform-engine/1.4.2/junit-platform-engine-1.4.2.jar"/>
+    <pathelement location="${path.variable.maven_repository}/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar"/>
+  </path>
+  
+  <path id="aaa.runtime.module.classpath">
+    <pathelement location="${aaa.testoutput.dir}"/>
+    <pathelement location="${aaa.output.dir}"/>
+    <pathelement location="${path.variable.maven_repository}/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar"/>
+    <pathelement location="${path.variable.maven_repository}/org/junit/jupiter/junit-jupiter-api/5.4.2/junit-jupiter-api-5.4.2.jar"/>
+    <pathelement location="${path.variable.maven_repository}/org/junit/jupiter/junit-jupiter-engine/5.4.2/junit-jupiter-engine-5.4.2.jar"/>
+    <pathelement location="${path.variable.maven_repository}/org/junit/jupiter/junit-jupiter-params/5.4.2/junit-jupiter-params-5.4.2.jar"/>
+    <pathelement location="${path.variable.maven_repository}/org/junit/jupiter/junit-jupiter/5.4.2/junit-jupiter-5.4.2.jar"/>
+    <pathelement location="${path.variable.maven_repository}/org/junit/platform/junit-platform-commons/1.4.2/junit-platform-commons-1.4.2.jar"/>
+    <pathelement location="${path.variable.maven_repository}/org/junit/platform/junit-platform-engine/1.4.2/junit-platform-engine-1.4.2.jar"/>
+    <pathelement location="${path.variable.maven_repository}/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.aaa">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.aaa">
+    <patternset refid="excluded.from.module.aaa"/>
+  </patternset>
+  
+  <path id="aaa.module.sourcepath">
+    <dirset dir="${module.aaa.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  <path id="aaa.module.test.sourcepath">
+    <dirset dir="${module.aaa.basedir}">
+      <include name="test"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.aaa" depends="compile.module.aaa.production,compile.module.aaa.tests" description="Compile module aaa"/>
+  
+  <target name="compile.module.aaa.production" description="Compile module aaa; production classes">
+    <mkdir dir="${aaa.output.dir}"/>
+    <javac destdir="${aaa.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.aaa}/javac">
+      <compilerarg line="${compiler.args.aaa}"/>
+      <bootclasspath refid="aaa.module.bootclasspath"/>
+      <classpath refid="aaa.module.production.classpath"/>
+      <src refid="aaa.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.aaa"/>
+    </javac>
+    
+    <copy todir="${aaa.output.dir}">
+      <fileset dir="${module.aaa.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.aaa.tests" depends="compile.module.aaa.production" description="compile module aaa; test classes" unless="skip.tests">
+    <mkdir dir="${aaa.testoutput.dir}"/>
+    <javac destdir="${aaa.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.aaa}/javac">
+      <compilerarg line="${compiler.args.aaa}"/>
+      <bootclasspath refid="aaa.module.bootclasspath"/>
+      <classpath refid="aaa.module.classpath"/>
+      <src refid="aaa.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.aaa"/>
+    </javac>
+    
+    <copy todir="${aaa.testoutput.dir}">
+      <fileset dir="${module.aaa.basedir}/test">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.aaa" description="cleanup module">
+    <delete dir="${aaa.output.dir}"/>
+    <delete dir="${aaa.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.aaa" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.aaa" description="build all modules"/>
+  
+  <target name="all" depends="build.modules" description="build all"/>
+</project>
