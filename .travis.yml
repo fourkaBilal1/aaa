@@ -1,6 +1,2 @@
 language: java
-addons:
-  apt:
-    packages:
-      - openjdk-9-jdk
 
